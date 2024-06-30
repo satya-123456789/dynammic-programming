@@ -1,0 +1,11 @@
+def natural(index,n):
+    if index>n:
+        return
+    print(index,end=" ")
+    natural(index+2,n)
+n=10
+natural(2,n)
+
+
+#expected output :
+# 1 2 3 4 5 6 7 8 9 10

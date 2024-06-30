@@ -1,0 +1,10 @@
+def maximum(nums,index,n):
+    if index==n:
+        return nums
+    nextele=maximum(nums,index+1,n)
+    if nums[index] > nextele:
+        return nextele
+    return nums[index]
+nums1=[1,2,3,7,5]
+res=maximum(nums1,0,len(nums1))
+print(res)
