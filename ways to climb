@@ -8,7 +8,8 @@ def ways(n,jumps):
     return dp[n]
 jumps=[2,4,5,8]
 n=10
-ways(n,jumps)
+res = ways(n,jumps)
+print(res)
 
 #expected ouput :
 #11
