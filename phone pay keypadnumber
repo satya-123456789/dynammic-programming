@@ -1,0 +1,19 @@
+def phone_number_keypad(num):
+    phone_map = {'2':'abc','3':'def',
+                 '4':'ghi','5':'jkl',
+                 '6':'mno','7':'pqrs',
+                 '8':'tuv','9':'wxyz'
+                 }
+    n=len(num)
+    dp=[[] for _ in range(n+1)]
+    dp[0] = [""]
+    for i in range(1,n+1):
+        for letter in phone_map[num[i-1]]:
+            for prev in dp[i-1]:
+                dp[i].append(prev+letter)
+    return dp[n]
+print(phone_number_keypad("23"))
+
+
+#expected output :
+#['ad', 'bd', 'cd', 'ae', 'be', 'ce', 'af', 'bf', 'cf']

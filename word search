@@ -1,0 +1,34 @@
+def wordsearch(grid, word):
+    if not grid or not grid[0]:
+        return False
+    n = len(grid)
+    m = len(grid[0])
+    dp = [[False] * m for _ in range(n)]
+    for i in range(n):
+        for j in range(m):
+            if grid[i][j] == word[0]: 
+                for k in range(1, len(word)):
+                    if i - k >= 0 and grid[i - k][j] == word[k] and dp[i - k][j]:
+                        dp[i][j] = True
+                    elif j - k >= 0 and grid[i][j - k] == word[k] and dp[i][j - k]:
+                        dp[i][j] = True
+                    else:
+                        dp[i][j] = False
+                        break
+                if dp[i][j]:
+                    return True
+    
+    return False
+
+# Example usage:
+grid = [
+    ['A', 'B', 'C', 'E'],
+    ['S', 'F', 'C', 'S'],
+    ['A', 'D', 'E', 'E']
+]
+word = 'ABCCED'
+
+print(wordsearch(grid, word))  # Output: True
+
+
+                    
