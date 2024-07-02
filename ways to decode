@@ -1,0 +1,23 @@
+def ways_to_decode(s):
+    n=len(s)
+    dp=[0]*n
+    if n==0:
+        return 0
+    elif n==1:
+        return 1
+    dp[0]=1
+    dp[1]=int(s[1]!="0")+int(s[1]!=0 and "10" <= s[1]+s[2] <="26")
+    for i in range(2,n):
+        if s[i]!="0":
+            dp[i]=dp[i-1]
+        if s[1]!=0 and "10" <= s[1]+s[2] <="26":
+            dp[i]+=dp[i-2]
+    return dp[n-1]
+res=ways_to_decode("511263859")
+print(res)
+
+
+
+
+#expexted output :
+#55
