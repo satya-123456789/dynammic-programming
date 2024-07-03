@@ -1,0 +1,12 @@
+def coin(amount, possible_values):
+    dp = [float('inf')] * (amount + 1)
+    dp[0] = 0  
+    for i in range(1, amount + 1):
+        for coin in possible_values:
+            if i - coin >= 0:
+                dp[i] = min(dp[i], 1 + dp[i - coin])
+    
+    return -1 if dp[amount] == float('inf') else dp[amount]
+res = coin(15, [2, 3, 5])
+print(res) 
+# Output: 3 (minimum coins: 5 + 5 + 5)
